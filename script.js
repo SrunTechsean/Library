@@ -1,9 +1,21 @@
 const myLibrary = [];
 
-function Book() {
-    // the constructor...
+function Book(author, title, pages, read) {
+    this.id = crypto.randomUUID();
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
 }
 
 function addBookToLibrary() {
     // take params, create a book then store it in the array
 }
+
+// TODO: 3. Function that loop through myLibrary and display each book on the page
+
+// TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
+
+//TODO: 5. A btn on each book to remove it (data-atribute to associate the book id to the dom)
+
+// TODO: 6. A tbn on each book to change it's read status (Book prototype funct that toggle a book instance's read status)
