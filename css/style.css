@@ -76,7 +76,7 @@
     font-weight: bold;
 }
 
-.sidebar__logo-text {
+.sidebar__brand-text {
     min-width: fit-content;
     color: var(--background-white);
 }
