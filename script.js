@@ -11,8 +11,18 @@ function Book(author, title, pages, read) {
     this.read = read;
 }
 
-// TODO: 3. Function that loop through myLibrary and display each book on the page
+function addBookToLibrary(author, title, pages, read) {
+    const book = new Book(author, title, pages, read);
 
+    myLibrary.push(book);
+}
+
+// Test to see if the libary is storing the book
+for (let i = 0; i < 3; i++) {
+    addBookToLibrary("Sean", "FireBook", 200, true);
+}
+
+// TODO: 3. Function that loop through myLibrary and display each book on the page
 // TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
 
 //TODO: 5. A btn on each book to remove it (data-atribute to associate the book id to the dom)
