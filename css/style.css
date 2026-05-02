@@ -150,12 +150,18 @@
     grid-template-columns: auto 1fr repeat(3, auto);
     gap: 3rem;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.5rem;
     background-color: var(--background-white);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow);
 }
 
+.book__cover {
+    width: 6rem;
+    height: 8rem;
+    background-color: var(--blue);
+    border-radius: var(--radius-sm);
+}
 .book__info {
     line-height: 1.7;
     color: var(--text-secondary);
