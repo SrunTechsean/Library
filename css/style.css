@@ -3,7 +3,7 @@
     grid-template-areas:
         "sidebar header "
         "sidebar main ";
-    grid-template-rows: 15rem 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: minmax(23rem, 1fr) 4fr;
     min-height: 100svh; /* fall-back */
 }
@@ -33,7 +33,7 @@
 }
 
 .sidebar {
-    padding: 1.5rem 2rem;
+    padding: 3rem 2rem;
     color: var(--background-white);
     background-color: var(--primary);
 }
@@ -61,6 +61,86 @@
 .sidebar__header {
     font-size: var(--header1-font-size);
     font-weight: bold;
+}
+
+/* Header Section  */
+.header {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 2rem;
+    min-width: 100%;
+    padding: 3rem 2rem;
+}
+
+.header__main {
+    display: flex;
+    align-self: center;
+}
+
+.header__description {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.header__action {
+    gap: 1rem;
+    margin-left: auto;
+}
+.search__input {
+    min-height: 4rem;
+    color: var(--background-dark-grey);
+    border: 2px solid var(--background-dark-grey);
+    border-radius: var(--radius-sm);
+}
+
+.header__action {
+    display: flex;
+    align-items: center;
+}
+
+.header__sort {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Button Design */
+.btn__add {
+    width: 12rem;
+    height: 4rem;
+}
+
+.btn__sort {
+    width: 8rem;
+    height: 4rem;
+}
+.btn--primary {
+    font-weight: 600;
+    color: var(--background-white);
+    background-color: var(--primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: all 1s ease;
+}
+
+.btn--primary:hover {
+    color: var(--primary);
+    background-color: var(--background-white);
+    border: 2px solid var(--primary);
+}
+
+.btn--secondary {
+    font-weight: 600;
+    color: var(--text-primary);
+    background-color: var(--background-grey);
+    border: 2px solid var(--background-dark-grey);
+    border-radius: var(--radius-sm);
+    transition: all 1s ease;
+}
+
+.btn--secondary:hover {
+    color: var(--primary);
+    background-color: var(--background-white);
+    border: 2px solid var(--primary);
 }
 
 @media (max-width: 600px) {
