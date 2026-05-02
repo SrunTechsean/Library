@@ -128,6 +128,57 @@
     gap: 2rem;
 }
 
+/* Main Section */
+.main {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 0 2rem;
+}
+.log {
+    overflow: auto;
+}
+
+.log__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.book {
+    display: grid;
+    grid-template-columns: auto 1fr repeat(3, auto);
+    gap: 3rem;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: groove var(--background-grey);
+}
+
+.book__info {
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.book__author,
+.book__page {
+    font-weight: 500;
+}
+
+.book__read {
+    padding: 3px 15px;
+    color: var(--green);
+    background-color: var(--green-light);
+    border-radius: var(--radius-btn);
+}
+
+.trash__icon {
+    color: var(--red);
+}
+
+.log__link h3 {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 /* Button Design */
 .btn__add {
     width: 12rem;
