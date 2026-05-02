@@ -94,3 +94,9 @@ progress {
 label {
     display: block;
 }
+
+button {
+    color: none;
+    background: none;
+    border: none;
+}
