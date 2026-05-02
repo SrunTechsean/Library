@@ -54,12 +54,35 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    color: var(--color-bg-white);
+    color: var(--background-white);
     text-decoration: none;
 }
 
 .sidebar__header {
     font-size: var(--header1-font-size);
     font-weight: bold;
-    color: var(--color-bg-white);
+}
+
+@media (max-width: 600px) {
+    .library {
+        display: grid;
+        grid-template-areas:
+            "header "
+            "main ";
+        grid-template-rows: 15rem 1fr;
+        grid-template-columns: auto;
+        min-height: 100svh; /* fall-back */
+    }
+
+    .header {
+        grid-area: header;
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+    .sidebar {
+        display: none;
+    }
 }
