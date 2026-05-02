@@ -176,12 +176,20 @@
     font-weight: 500;
 }
 
-.book__read {
+.read {
     padding: 4px 12px;
     color: var(--green);
     background-color: var(--green-light);
     border-radius: var(--radius-btn);
     box-shadow: 0 0 1px var(--green-light);
+}
+
+.unread {
+    padding: 4px 12px;
+    color: var(--text-primary);
+    background-color: var(--background-grey);
+    border-radius: var(--radius-btn);
+    box-shadow: 0 0 1px var(--background-grey);
 }
 
 .trash__icon {
