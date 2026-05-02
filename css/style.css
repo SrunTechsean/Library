@@ -1,11 +1,11 @@
-.dashboard {
+.library {
     display: grid;
     grid-template-areas:
         "sidebar header "
         "sidebar main ";
     grid-template-rows: 15rem 1fr;
     grid-template-columns: minmax(23rem, 1fr) 4fr;
-    height: 100%;
+    min-height: 100svh; /* fall-back */
 }
 
 .header {
@@ -15,7 +15,6 @@
 
 .sidebar {
     grid-area: sidebar;
-    background-color: lightblue;
 }
 
 .main {
@@ -31,11 +30,12 @@
     flex-direction: column;
     grid-area: sidebar;
     gap: 3rem;
-    background-color: var(--color-primary);
 }
 
 .sidebar {
     padding: 1.5rem 2rem;
+    color: var(--background-white);
+    background-color: var(--primary);
 }
 
 .sidebar__nav {
