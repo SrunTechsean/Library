@@ -1,15 +1,14 @@
 const myLibrary = [];
 
 function Book(author, title, pages, read) {
+    if (!new.target) {
+        throw Error("You must use the new operator to call the constructor");
+    }
     this.id = crypto.randomUUID();
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
-}
-
-function addBookToLibrary() {
-    // take params, create a book then store it in the array
 }
 
 // TODO: 3. Function that loop through myLibrary and display each book on the page
