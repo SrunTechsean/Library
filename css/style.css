@@ -139,6 +139,11 @@
     overflow: auto;
 }
 
+.log__menu {
+    display: grid;
+    gap: 1rem;
+}
+
 .log__header {
     display: flex;
     justify-content: space-between;
