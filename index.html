@@ -11,7 +11,38 @@
     </head>
     <body>
         <div class="library">
-            <header class="header"></header>
+            <header class="header">
+                <div class="header__main">
+                    <h2 class="header__title">Your Collection</h2>
+                    <div class="header__action">
+                        <div class="search">
+                            <span class="icon">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <title>Search</title>
+                                    <path d="m21 21-4.34-4.34" />
+                                    <circle cx="11" cy="11" r="8" />
+                                </svg>
+                            </span>
+                            <input class="search__input" type="search">
+                        </div>
+                        <button class="btn btn--primary" type="submit">+ Add Book</button>
+                    </div>
+                </div>
+                <div class="header__sort">
+                    <button class="btn btn--primary" type="submit">All</button>
+                    <button class="btn btn--primary" type="submit">Read</button>
+                    <button class="btn btn--primary" type="submit">UnRead</button>
+                </div>
+            </header>
             <aside class="sidebar">
                 <header class="sidebar__header">
                     <a class="sidebar__link" href="#">
