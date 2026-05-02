@@ -160,7 +160,7 @@
     border: 2px solid var(--primary);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .library {
         display: grid;
         grid-template-areas:
