@@ -132,10 +132,11 @@
 .main {
     display: grid;
     grid-template-rows: 1fr;
-    padding: 0 2rem;
 }
 .log {
     overflow: auto;
+    padding: 1rem 2rem;
+
 }
 
 .log__header {
@@ -150,7 +151,9 @@
     gap: 3rem;
     align-items: center;
     padding: 1rem;
-    border-bottom: groove var(--background-grey);
+    background-color: var(--background-white);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
 }
 
 .book__info {
@@ -174,10 +177,31 @@
     color: var(--red);
 }
 
-.log__link h3 {
-    color: var(--primary-dark);
-    text-decoration: underline;
-}
+/* /* Toggle check box */ */
+/* .switch { */
+/*     position: relative; */
+/*     width: 60px; */
+/*     height: 34px; */
+/* } */
+/**/
+/* /* Hide default HTML checkbox */ */
+/* .switch__input { */
+/*     width: 0; */
+/*     height: 0; */
+/*     opacity: 0; */
+/* } */
+/**/
+/* .switch__slider { */
+/*     position: absolute; */
+/*     top: 0; */
+/*     right: 0; */
+/*     bottom: 0; */
+/*     left: 0; */
+/*     cursor: pointer; */
+/*     background-color: var(--background-dark-grey); */
+/*     -webkit-transition: 0.4s; */
+/*     transition: 0.4s; */
+/* } */
 
 /* Button Design */
 .btn__add {
