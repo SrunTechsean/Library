@@ -23,6 +23,14 @@ for (let i = 0; i < 3; i++) {
 }
 
 // TODO: 3. Function that loop through myLibrary and display each book on the page
+function displayBook() {
+    for (const book of myLibrary) {
+        console.log(book);
+    }
+}
+
+displayBook();
+
 // TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
 
 //TODO: 5. A btn on each book to remove it (data-atribute to associate the book id to the dom)
