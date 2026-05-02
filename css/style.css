@@ -9,8 +9,10 @@
 }
 
 .header {
+    z-index: 1;
     grid-area: header;
-    background-color: white;
+    background-color: var(--background-white);
+    box-shadow: var(--shadow);
 }
 
 .sidebar {
