@@ -5,7 +5,7 @@
         "sidebar main ";
     grid-template-rows: auto 1fr;
     grid-template-columns: minmax(23rem, 1fr) 4fr;
-    min-height: 100svh; /* fall-back */
+    height: 100svh;
 }
 
 .header {
@@ -134,9 +134,6 @@
 .main {
     display: grid;
     grid-template-rows: 1fr;
-}
-
-.log {
     padding: 1rem 2rem;
     overflow: auto;
 }
