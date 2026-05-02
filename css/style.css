@@ -94,7 +94,7 @@
     grid-template-rows: repeat(2, auto);
     gap: 2rem;
     min-width: 100%;
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 2rem;
 }
 
 .header__main {
