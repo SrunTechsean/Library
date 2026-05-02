@@ -166,13 +166,32 @@
         grid-template-areas:
             "header "
             "main ";
-        grid-template-rows: 15rem 1fr;
+        grid-template-rows: auto 1fr;
         grid-template-columns: auto;
         min-height: 100svh; /* fall-back */
     }
 
     .header {
         grid-area: header;
+        gap: 2rem;
+        padding: 2rem 2rem;
+    }
+
+    .header__main {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .header__action {
+        margin: 0;
+    }
+
+    .search {
+        flex-grow: 1;
+    }
+
+    .search__input {
+        width: 100%;
     }
 
     .main {
