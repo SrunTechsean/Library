@@ -133,10 +133,10 @@
     display: grid;
     grid-template-rows: 1fr;
 }
-.log {
-    overflow: auto;
-    padding: 1rem 2rem;
 
+.log {
+    padding: 1rem 2rem;
+    overflow: auto;
 }
 
 .log__header {
@@ -150,7 +150,7 @@
     grid-template-columns: auto 1fr repeat(3, auto);
     gap: 3rem;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: var(--background-white);
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow);
@@ -167,41 +167,75 @@
 }
 
 .book__read {
-    padding: 3px 15px;
+    padding: 4px 12px;
     color: var(--green);
     background-color: var(--green-light);
     border-radius: var(--radius-btn);
+    box-shadow: 0 0 1px var(--green-light);
 }
 
 .trash__icon {
     color: var(--red);
 }
 
-/* /* Toggle check box */ */
-/* .switch { */
-/*     position: relative; */
-/*     width: 60px; */
-/*     height: 34px; */
-/* } */
-/**/
-/* /* Hide default HTML checkbox */ */
-/* .switch__input { */
-/*     width: 0; */
-/*     height: 0; */
-/*     opacity: 0; */
-/* } */
-/**/
-/* .switch__slider { */
-/*     position: absolute; */
-/*     top: 0; */
-/*     right: 0; */
-/*     bottom: 0; */
-/*     left: 0; */
-/*     cursor: pointer; */
-/*     background-color: var(--background-dark-grey); */
-/*     -webkit-transition: 0.4s; */
-/*     transition: 0.4s; */
-/* } */
+/* Toggle check box */
+.switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch__input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.switch__slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: var(--background-dark-grey);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.switch__input:focus + .switch__slider {
+    box-shadow: 0 0 1px var(--primary);
+}
+
+.switch__slider:before {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    content: "";
+    background-color: var(--background-white);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.switch__input:checked + .switch__slider {
+    background-color: var(--primary);
+}
+
+.switch__input:checked + .switch__slider:before {
+    -ms-transform: translateX(30px);
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+}
+.switch__slider {
+    border-radius: 34px;
+}
+
+.switch__slider:before {
+    border-radius: 50%;
+}
 
 /* Button Design */
 .btn__add {
