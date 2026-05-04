@@ -24,7 +24,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 // Function that loop through myLibrary and display each book on the page
-function displayBook() {
+function renderLog() {
     logMenu.innerHTML = "";
     for (const book of myLibrary) {
         // Create the list of book
@@ -72,6 +72,23 @@ displayBook();
 
 // TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
 
-//TODO: 5. A btn on each book to remove it (data-atribute to associate the book id to the dom)
+// Remove and Edit book entries
+logMenu.addEventListener("click", (e) => {
+    const remove = e.target.closest(".trash__icon");
+    const edit = e.target.closest(".edit__icon");
+    if (!remove && !edit) return;
+
+    const bookItem = e.target.closest(".book");
+    const entryID = bookItem.dataset.id;
+
+    if (remove) {
+        removeEntries(entryID);
+    } else if (edit) {
+        openEditModal(entryID);
+    }
+
+    // Re-render the book log
+    renderLog();
+});
 
 // TODO: 6. A tbn on each book to change it's read status (Book prototype funct that toggle a book instance's read status)
