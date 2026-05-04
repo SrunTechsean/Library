@@ -68,7 +68,7 @@ function renderLog() {
     }
 }
 
-displayBook();
+renderLog();
 
 // TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
 
@@ -90,5 +90,18 @@ logMenu.addEventListener("click", (e) => {
     // Re-render the book log
     renderLog();
 });
+
+// Function to remove book entries
+function removeEntries(id) {
+    // Find the index of the book that have that id
+    const index = myLibrary.indexOf(myLibrary.find((book) => book.id === id));
+
+    // Only slice array when item(book) is found
+    if (index > -1) {
+        myLibrary.splice(index, 1);
+    }
+}
+
+// Function to edit book entries
 
 // TODO: 6. A tbn on each book to change it's read status (Book prototype funct that toggle a book instance's read status)
