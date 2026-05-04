@@ -1,4 +1,5 @@
 const myLibrary = [];
+const logMenu = document.querySelector(".log__menu");
 
 function Book(author, title, pages, read) {
     if (!new.target) {
@@ -22,10 +23,48 @@ for (let i = 0; i < 3; i++) {
     addBookToLibrary("Sean", "FireBook", 200, true);
 }
 
-// TODO: 3. Function that loop through myLibrary and display each book on the page
+// Function that loop through myLibrary and display each book on the page
 function displayBook() {
+    logMenu.innerHTML = "";
     for (const book of myLibrary) {
-        console.log(book);
+        // Create the list of book
+        const bookItem = document.createElement("li");
+        bookItem.classList.add("book");
+        bookItem.dataset.id = book.id;
+
+        // Add html(info) of the book into it's innerHTML
+        bookItem.innerHTML = `
+                            <div class="book__cover"></div>
+                            <div class="book__info">
+                                <h3 class="book__title">${book.title}</h3>
+                                <p class="book__author">${book.author}</p>
+                                <p class="book__page">${book.pages} pages</p>
+                            </div>
+                            <p class="book__read read">Read</p>
+                            <label class="switch">
+                                <input class="switch__input" type="checkbox">
+                                <span class="switch__slider"></span>
+                            </label>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon trash__icon"
+                            >
+                                <title>Delete</title>
+                                <path d="M10 11v6"></path>
+                                <path d="M14 11v6"></path>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                                <path d="M3 6h18"></path>
+                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>`;
+        logMenu.appendChild(bookItem);
     }
 }
 
