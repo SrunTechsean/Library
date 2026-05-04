@@ -15,7 +15,7 @@
                 <div class="header__main">
                     <div class="header__title">
                         <h2 class="header__text">All Books</h2>
-                        <p class="header__description">
+                        <p class="header__description description">
                             Your personal collections of books
                         </p>
                     </div>
@@ -32,6 +32,107 @@
                             + Add Book
                         </button>
                     </div>
+                    <dialog open class="modal">
+                        <form action="#" class="form" method="dialog">
+                            <div class="form__header">
+                                <h3 class="form__tittle">Add New Book</h3>
+
+                                <div class="form__close close">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="icon form__close"
+                                    >
+                                        <title>Close Icon</title>
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="form__field--title">
+                                <label class="form__label" for="title">
+                                    title<span class="highlight--red">*</span>
+                                </label>
+                                <input
+                                    required
+                                    class="form__input required"
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder="Enter book title"
+                                >
+                            </div>
+                            <div class="form__field--author">
+                                <label class="form__label" for="author">
+                                    Author<span class="highlight--red">*</span>
+                                </label>
+                                <input
+                                    required
+                                    class="form__input required"
+                                    type="text"
+                                    id="author"
+                                    name="author"
+                                    placeholder="Enter author name"
+                                >
+                            </div>
+                            <div class="form__field--pages">
+                                <label class="form__label" for="pages">
+                                    Pages<span class="highlight--red">*</span>
+                                </label>
+                                <input
+                                    required
+                                    class="form__input required"
+                                    type="text"
+                                    id="pages"
+                                    name="pages"
+                                    placeholder="Enter number of pages"
+                                >
+                            </div>
+                            <div class="form__field--read">
+                                <label class="form__label" for="read">
+                                    Read<span class="highlight--red">*</span>
+                                </label>
+                                <div class="switch">
+                                    <input
+                                        name="read"
+                                        id="read"
+                                        class="switch__input"
+                                        type="checkbox"
+                                    >
+                                    <span class="switch__slider"></span>
+                                </div>
+                                <span class="form__description">
+                                    I have read this book.
+                                </span>
+                            </div>
+
+                            <div class="form__submit">
+                                <div class="form__btn-container">
+                                    <button
+                                        class="btn btn--secondary close"
+                                        type="button"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        id="open"
+                                        class="btn btn--primary"
+                                        type="submit"
+                                    >
+                                        ✓⃝ Save Meal
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </dialog>
                 </div>
                 <div class="header__sort">
                     <button class="btn btn--primary btn__sort" type="submit">All</button>
