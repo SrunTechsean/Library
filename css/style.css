@@ -299,11 +299,25 @@
     .library {
         display: grid;
         grid-template-areas:
+            "sidebar"
             "header "
             "main ";
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
         grid-template-columns: auto;
         min-height: 100svh; /* fall-back */
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        padding: 2rem 2rem;
+    }
+
+    .sidebar__nav {
+        display: none;
+    }
+
+    .sidebar__brand-text {
+        font-weight: 600;
     }
 
     .header {
@@ -313,8 +327,12 @@
     }
 
     .header__main {
+        /* flex column so that the search grow to full width */
         flex-direction: column;
-        gap: 2rem;
+    }
+
+    .header__title {
+        display: none;
     }
 
     .header__action {
@@ -333,7 +351,7 @@
         grid-area: main;
     }
 
-    .sidebar {
-        display: none;
+    .btn__add {
+        width: fit-content;
     }
 }
