@@ -1,5 +1,7 @@
 const myLibrary = [];
 const logMenu = document.querySelector(".log__menu");
+const modal = document.querySelector(".modal");
+const addButton = document.querySelector(".btn__add");
 
 function Book(author, title, pages, read) {
     if (!new.target) {
@@ -70,7 +72,12 @@ function renderLog() {
 
 renderLog();
 
-// TODO: 4. Add a new book btn that open up a form (e.preventDefault() to stop submisiion to server)
+// e.preventDefault() to stop submisiion to server
+addButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    modal.showModal();
+});
 
 // Remove and Edit book entries
 logMenu.addEventListener("click", (e) => {
@@ -102,6 +109,6 @@ function removeEntries(id) {
     }
 }
 
-// Function to edit book entries
+// TODO: Function to edit book entries
 
 // TODO: 6. A tbn on each book to change it's read status (Book prototype funct that toggle a book instance's read status)
