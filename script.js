@@ -79,6 +79,14 @@ addButton.addEventListener("click", (e) => {
     modal.showModal();
 });
 
+// Listen to the whole modal and target close btn inside it
+// Since the modal have 2 close btn
+modal.addEventListener("click", (e) => {
+    if (e.target.closest(".close")) {
+        modal.close();
+    }
+});
+
 // Remove and Edit book entries
 logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
