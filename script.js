@@ -24,6 +24,7 @@ function addBookToLibrary(author, title, pages, read) {
 for (let i = 0; i < 3; i++) {
     addBookToLibrary("Sean", "FireBook", 200, true);
 }
+addBookToLibrary("Sean", "FireBook", 200, false);
 
 // Function that loop through myLibrary and display each book on the page
 function renderLog() {
@@ -34,6 +35,10 @@ function renderLog() {
         bookItem.classList.add("book");
         bookItem.dataset.id = book.id;
 
+        const checkedAttr = book.read ? "checked" : "";
+        const readClass = book.read ? "read" : "unread";
+        const readText = book.read ? "Read" : "Unread";
+
         // Add html(info) of the book into it's innerHTML
         bookItem.innerHTML = `
                             <div class="book__cover"></div>
@@ -42,9 +47,9 @@ function renderLog() {
                                 <p class="book__author">${book.author}</p>
                                 <p class="book__page">${book.pages} pages</p>
                             </div>
-                            <p class="book__read read">Read</p>
+                            <p class="book__read ${readClass} ">${readText}</p>
                             <label class="switch">
-                                <input class="switch__input" type="checkbox">
+                                <input ${checkedAttr} class="switch__input" type="checkbox">
                                 <span class="switch__slider"></span>
                             </label>
                             <svg
