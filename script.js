@@ -96,19 +96,26 @@ modal.addEventListener("click", (e) => {
 logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
     const edit = e.target.closest(".edit__icon");
-    if (!remove && !edit) return;
+    const checkbox = e.target.closest(".switch__input");
+
+    if (!remove && !edit && !checkbox) return;
 
     const bookItem = e.target.closest(".book");
     const entryID = bookItem.dataset.id;
 
+    // I put renderlog inside each cuz checkbox don't need to reRender
     if (remove) {
         removeEntries(entryID);
+        // Re-render the book log
+        renderLog();
     } else if (edit) {
         openEditModal(entryID);
+        // Re-render the book log
+        renderLog();
+    } else if (checkbox) {
+        const badge = bookItem.querySelector(".book__read");
+        editReadStatus(entryID, badge);
     }
-
-    // Re-render the book log
-    renderLog();
 });
 
 // Function to remove book entries
@@ -124,4 +131,19 @@ function removeEntries(id) {
 
 // TODO: Function to edit book entries
 
-// TODO: 6. A tbn on each book to change it's read status (Book prototype funct that toggle a book instance's read status)
+// Toggle the book read status and it's badge
+function editReadStatus(id, badge) {
+    const book = myLibrary.find((book) => book.id === id);
+    book.read = !book.read;
+
+    // It dynamically add className (read, unread) depending on the toggle
+    badge.classList.toggle("read", book.read);
+    badge.classList.toggle("unread", !book.read);
+
+    // Change the badge text so that it match the toggle
+    if (!book.read) {
+        badge.textContent = "Unread";
+    } else {
+        badge.textContent = "Read";
+    }
+}
