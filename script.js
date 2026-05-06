@@ -130,6 +130,9 @@ function removeEntries(id) {
 }
 
 // TODO: Function to edit book entries
+function editBook() {
+    return;
+}
 
 // Toggle the book read status and it's badge
 function editReadStatus(id, badge) {
