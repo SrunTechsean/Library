@@ -279,7 +279,7 @@
     /* make the border tranparent n edit it during hover  */
     /* this prevent border mismatch in btn__add that use width: fit-content (stop using box-sizing) */
     border: 2px solid transparent;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-btn);
     transition: all 1s ease;
 }
 
@@ -292,9 +292,9 @@
 .btn--secondary {
     font-weight: 600;
     color: var(--text-primary);
-    background-color: var(--background-grey);
-    border: 2px solid var(--background-dark-grey);
-    border-radius: var(--radius-sm);
+    background-color: var(--background-white);
+    border: 2px solid var(--background-grey);
+    border-radius: var(--radius-btn);
     transition: all 1s ease;
 }
 
