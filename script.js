@@ -1,7 +1,16 @@
 const myLibrary = [];
 const logMenu = document.querySelector(".log__menu");
-const modal = document.querySelector(".modal");
 const addButton = document.querySelector(".btn__add");
+
+// Grab modal element so that I can get the value of the submitted answer
+const modal = {
+    dialog: document.querySelector(".modal"),
+    form: document.querySelector(".form"),
+    author: document.querySelector("#author"),
+    title: document.querySelector("#title"),
+    pages: document.querySelector("#pages"),
+    read: document.querySelector(".switch__input"),
+};
 
 function Book(author, title, pages, read) {
     if (!new.target) {
@@ -81,14 +90,14 @@ renderLog();
 addButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    modal.showModal();
+    modal.dialog.showModal();
 });
 
 // Listen to the whole modal and target close btn inside it
 // Since the modal have 2 close btn
-modal.addEventListener("click", (e) => {
+modal.dialog.addEventListener("click", (e) => {
     if (e.target.closest(".close")) {
-        modal.close();
+        modal.dialog.close();
     }
 });
 
