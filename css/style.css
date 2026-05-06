@@ -198,9 +198,13 @@
 
 /* Toggle check box */
 .switch {
+    /* add this local var bcuz inside the modal it needs to be a different size  */
+    /* as you can see in .form__switch */
+    --_width: var(--width, 60px);
+    --_height: var(--height, 30px);
     position: relative;
-    width: 60px;
-    height: 30px;
+    width: var(--_width);
+    height: var(--_height);
 }
 
 /* Hide default HTML checkbox */
@@ -237,8 +241,8 @@
     position: absolute;
     bottom: 3px;
     left: 3px;
-    width: 24px;
-    height: 24px;
+    width: calc(var(--_height) - 6px);
+    height: calc(var(--_height) - 6px);
     content: "";
     background-color: var(--background-white);
     -webkit-transition: 0.4s;
@@ -250,9 +254,9 @@
 }
 
 .switch__input:checked + .switch__slider:before {
-    -ms-transform: translateX(30px);
-    -webkit-transform: translateX(30px);
-    transform: translateX(30px);
+    -ms-transform: translateX(calc(var(--_width - var(--_height))));
+    -webkit-transform: translateX(calc(var(--_width - var(--_height))));
+    transform: translateX(calc(var(--_width) - var(--_height)));
 }
 .switch__slider {
     border-radius: 34px;
@@ -351,10 +355,15 @@
 
 .form__description {
     position: absolute;
-    left: 7rem;
+    left: 6rem;
     align-self: center;
     width: 18rem;
     color: var(--text-secondary);
+}
+
+.form__switch {
+    --width: 50px;
+    --height: 24px;
 }
 
 .highlight--red {
