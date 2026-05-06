@@ -159,3 +159,8 @@ function editReadStatus(id, badge) {
         badge.textContent = "Read";
     }
 }
+
+// Helper function to help capitalize the first character for author, title
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
