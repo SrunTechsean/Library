@@ -269,7 +269,9 @@
     font-weight: 600;
     color: var(--background-white);
     background-color: var(--primary);
-    border: none;
+    /* make the border tranparent n edit it during hover  */
+    /* this prevent border mismatch in btn__add that use width: fit-content (stop using box-sizing) */
+    border: 2px solid transparent;
     border-radius: var(--radius-sm);
     transition: all 1s ease;
 }
@@ -277,7 +279,7 @@
 .btn--primary:hover {
     color: var(--primary);
     background-color: var(--background-white);
-    border: 2px solid var(--primary);
+    border-color: var(--primary);
 }
 
 .btn--secondary {
@@ -292,7 +294,7 @@
 .btn--secondary:hover {
     color: var(--primary);
     background-color: var(--background-white);
-    border: 2px solid var(--primary);
+    border-color: var(--primary);
 }
 
 @media (max-width: 1024px) {
