@@ -184,6 +184,24 @@ function removeEntries(id) {
     }
 }
 
+// Function to open the modal with existing data
+function openEditModal(entryID) {
+    // Find > filter here cuz find return the single first element which in this case is the first obj, so I can use entry.mealType
+    // If I use filter it will return a new array with the first obj then to access it i need to use sth like entry[0].mealType
+    const book = myLibrary.find((book) => book.id === entryID);
+
+    // Track current editing ID
+    editingID = entryID;
+
+    // Use capitalize funct to match with <option> Value properties
+    modal.author.value = book.author;
+    modal.title.value = book.title;
+    modal.pages.value = book.pages;
+    modal.read.checked = book.read;
+
+    modal.dialog.showModal();
+}
+
 // TODO: Function to edit book entries
 function editBook() {
     return;
