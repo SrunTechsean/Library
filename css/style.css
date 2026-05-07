@@ -181,13 +181,26 @@
 }
 
 .edit-cover {
-    place-self: center;
+    position: relative;
+}
+
+.edit-cover__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     opacity: 30%;
+    transform: translate(-50%, -50%);
     transition: all 1s ease;
 }
 
-.edit-cover:focus,
-.edit-cover:hover {
+.cover__input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.edit-cover__icon:focus,
+.edit-cover__icon:hover {
     opacity: 100%;
 }
 
