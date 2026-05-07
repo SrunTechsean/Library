@@ -283,7 +283,7 @@
                         <!-- List of book log item will be generated using JS -->
                         <li class="book">
                             <div class="book__cover">
-                                <button class="edit-cover" type="button">
+                                <label for="cover" class="edit-cover" type="button">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="36"
@@ -301,7 +301,13 @@
                                         <path d="M8 12h8" />
                                         <path d="M12 8v8" />
                                     </svg>
-                                </button>
+                                    <input
+                                        type="file"
+                                        id="cover"
+                                        class="cover__input"
+                                        accept="image/*"
+                                    >
+                                </label>
                             </div>
                             <div class="book__info">
                                 <h3 class="book__title">The Alchemist</h3>

@@ -53,7 +53,7 @@ function renderLog() {
         // Add html(info) of the book into it's innerHTML
         bookItem.innerHTML = `
                             <div class="book__cover">
-                                <button class="edit-cover" type="button">
+                                <label for="cover" class="edit-cover" type="button">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="36"
@@ -71,8 +71,8 @@ function renderLog() {
                                         <path d="M8 12h8" />
                                         <path d="M12 8v8" />
                                     </svg>
-                                </button>
-
+                                    <input class="cover__input" type="file" id="cover" accept="image/*">
+                                </label>
                             </div>
                             <div class="book__info">
                                 <h3 class="book__title">${book.title}</h3>
