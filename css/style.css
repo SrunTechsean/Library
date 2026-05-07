@@ -163,7 +163,7 @@
 .book {
     display: grid;
     grid-template-columns: auto 1fr repeat(4, auto);
-    gap: 3rem;
+    column-gap: 3rem;
     align-items: center;
     padding: 1.5rem;
     background-color: var(--background-white);
@@ -173,7 +173,7 @@
 
 .book__cover {
     width: 6rem;
-    height: 8rem;
+    height: 100%;
     background-color: var(--blue);
     border-radius: var(--radius-sm);
 }
@@ -389,6 +389,7 @@
         min-height: 100svh; /* fall-back */
     }
 
+    /* Sidebar Section */
     .sidebar {
         grid-area: sidebar;
         padding: 2rem 2rem;
@@ -402,6 +403,7 @@
         font-weight: 600;
     }
 
+    /* Header Section */
     .header {
         grid-area: header;
         gap: 2rem;
@@ -429,11 +431,48 @@
         width: 100%;
     }
 
+    /* Main Section */
     .main {
         grid-area: main;
     }
 
+    /* Book Log Section */
+    .book {
+        grid-template-areas:
+            "cover info badge others"
+            "cover info toggle others";
+        grid-template-columns: auto 1fr repeat(2, auto);
+        column-gap: 2rem;
+        padding: 1rem;
+    }
+
+    .book__cover {
+        grid-area: cover;
+    }
+
+    .book__info {
+        grid-area: info;
+    }
+
+    .book__read {
+        grid-area: badge;
+    }
+
+    .switch {
+        grid-area: toggle;
+        justify-self: center;
+    }
+
+    .edit__icon {
+        display: none;
+    }
+
+    .trash__icon {
+        display: none;
+    }
+
+    /* Button Section */
     .btn__add {
-        width: fit-content;
+        width: max-content;
     }
 }
