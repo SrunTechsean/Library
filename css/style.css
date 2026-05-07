@@ -24,6 +24,16 @@
     background-color: var(--background-grey);
 }
 
+/* Icon Section */
+.icon {
+    --_icon-color: var(--icon-color, var(--text-primary));
+    color: var(--_icon-color);
+}
+
+.trash__icon {
+    --icon-color: var(--red);
+}
+
 /* sidebar */
 
 .sidebar,
@@ -35,8 +45,9 @@
 }
 
 .sidebar {
+    /* ensure icon in sidebar are white */
+    --icon-color: var(--background-white);
     padding: 3rem 2rem;
-    color: var(--background-white);
     background-color: var(--primary);
 }
 
@@ -151,7 +162,7 @@
 
 .book {
     display: grid;
-    grid-template-columns: auto 1fr repeat(3, auto);
+    grid-template-columns: auto 1fr repeat(4, auto);
     gap: 3rem;
     align-items: center;
     padding: 1.5rem;
@@ -190,10 +201,6 @@
     background-color: var(--background-grey);
     border-radius: var(--radius-btn);
     box-shadow: 0 0 1px var(--background-grey);
-}
-
-.trash__icon {
-    color: var(--red);
 }
 
 /* Toggle check box */
