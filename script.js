@@ -193,7 +193,6 @@ function openEditModal(entryID) {
     // Track current editing ID
     editingID = entryID;
 
-    // Use capitalize funct to match with <option> Value properties
     modal.author.value = book.author;
     modal.title.value = book.title;
     modal.pages.value = book.pages;
@@ -202,7 +201,7 @@ function openEditModal(entryID) {
     modal.dialog.showModal();
 }
 
-// TODO: Function to edit book entries
+// Function to edit book entries
 function editBook(author, title, pages, read) {
     console.log({ author }, { title });
     const book = myLibrary.find((book) => book.id === editingID);
@@ -211,7 +210,7 @@ function editBook(author, title, pages, read) {
     book.author = author;
     book.title = title;
     book.pages = pages;
-    book.read.checked = read;
+    book.read = read;
 
     renderLog();
 }
