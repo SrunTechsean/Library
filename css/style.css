@@ -126,6 +126,7 @@
 }
 .search__input {
     min-height: 4rem;
+    padding-left: 1rem;
     color: var(--background-dark-grey);
     border: 2px solid var(--background-dark-grey);
     border-radius: var(--radius-sm);
