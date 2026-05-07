@@ -197,7 +197,7 @@ logMenu.addEventListener("click", (e) => {
 // Function to remove book entries
 function removeEntries(id) {
     // Find the index of the book that have that id
-    const index = myLibrary.indexOf(myLibrary.find((book) => book.id === id));
+    const index = myLibrary.indexOf(findBook(id));
 
     // Only slice array when item(book) is found
     if (index > -1) {
@@ -209,7 +209,7 @@ function removeEntries(id) {
 function openEditModal(entryID) {
     // Find > filter here cuz find return the single first element which in this case is the first obj, so I can use entry.mealType
     // If I use filter it will return a new array with the first obj then to access it i need to use sth like entry[0].mealType
-    const book = myLibrary.find((book) => book.id === entryID);
+    const book = findBook(entryID);
 
     // Track current editing ID
     editingID = entryID;
@@ -225,7 +225,7 @@ function openEditModal(entryID) {
 // Function to edit book entries
 function editBook(author, title, pages, read) {
     console.log({ author }, { title });
-    const book = myLibrary.find((book) => book.id === editingID);
+    const book = findBook(editingID);
     if (!book) return;
 
     book.author = author;
@@ -238,7 +238,7 @@ function editBook(author, title, pages, read) {
 
 // Toggle the book read status and it's badge
 function editReadStatus(id, badge) {
-    const book = myLibrary.find((book) => book.id === id);
+    const book = findBook(id);
     book.read = !book.read;
 
     // It dynamically add className (read, unread) depending on the toggle
@@ -258,4 +258,8 @@ function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-//TODO: Create a function to help find book entry using entryID
+// Since I keep finding book with their id alot
+// I creaet a funct for it
+function findBook(id) {
+    return myLibrary.find((book) => book.id === id);
+}
