@@ -1,6 +1,8 @@
 const myLibrary = [];
 const logMenu = document.querySelector(".log__menu");
 const addButton = document.querySelector(".btn__add");
+// A key to know if a book is being edited
+let editingID = null;
 
 // Grab modal element so that I can get the value of the submitted answer
 const modal = {
@@ -99,6 +101,29 @@ modal.dialog.addEventListener("click", (e) => {
     if (e.target.closest(".close")) {
         modal.dialog.close();
     }
+});
+
+// Get form input to update book in library
+modal.form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = capitalize(modal.title.value);
+    const author = modal.title.value;
+    const pages = Number(modal.pages.value);
+    const read = modal.read.checked;
+
+    // state.editingID means that a meal is currently being edited and is not a new meal log
+    if (editingID) {
+        editBook(author, title, pages, read);
+    } else {
+        addBookToLibrary(author, title, pages, read);
+    }
+
+    editingID = null;
+    modal.form.reset();
+    modal.dialog.close();
+
+    renderLog();
 });
 
 // Remove and Edit book entries
