@@ -127,7 +127,7 @@ modal.form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = capitalize(modal.title.value);
-    const author = modal.title.value;
+    const author = modal.author.value;
     const pages = Number(modal.pages.value);
     const read = modal.read.checked;
 
@@ -203,8 +203,17 @@ function openEditModal(entryID) {
 }
 
 // TODO: Function to edit book entries
-function editBook() {
-    return;
+function editBook(author, title, pages, read) {
+    console.log({ author }, { title });
+    const book = myLibrary.find((book) => book.id === editingID);
+    if (!book) return;
+
+    book.author = author;
+    book.title = title;
+    book.pages = pages;
+    book.read.checked = read;
+
+    renderLog();
 }
 
 // Toggle the book read status and it's badge
@@ -228,3 +237,5 @@ function editReadStatus(id, badge) {
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
+
+//TODO: Create a function to help find book entry using entryID
