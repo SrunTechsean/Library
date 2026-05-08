@@ -173,6 +173,7 @@
 }
 
 .book__cover {
+    position: relative;
     display: grid;
     height: 9rem;
     aspect-ratio: 1 / 1.5;
@@ -182,10 +183,6 @@
 
 .book__cover .cover {
     object-fit: cover;
-}
-
-.edit-cover {
-    position: relative;
 }
 
 .edit-cover__icon {
