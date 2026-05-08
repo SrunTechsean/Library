@@ -1,6 +1,7 @@
 const myLibrary = [];
 const logMenu = document.querySelector(".log__menu");
 const addButton = document.querySelector(".btn__add");
+
 // A key to know if a book is being edited
 let editingID = null;
 
@@ -166,11 +167,12 @@ modal.form.addEventListener("submit", (e) => {
     renderLog();
 });
 
-// Remove and Edit book entries
+// Remove, Edit, Toggle, addBookCover to book entries
 logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
     const edit = e.target.closest(".edit__icon");
     const checkbox = e.target.closest(".switch__input");
+    const input = e.target.closest(".cover__input");
 
     if (!remove && !edit && !checkbox) return;
 
