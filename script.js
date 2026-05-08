@@ -15,7 +15,7 @@ const modal = {
     read: document.querySelector(".switch__input"),
 };
 
-function Book(author, title, pages, read) {
+function Book(author, title, pages, read, cover) {
     if (!new.target) {
         throw Error("You must use the new operator to call the constructor");
     }
@@ -24,10 +24,11 @@ function Book(author, title, pages, read) {
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.cover = cover;
 }
 
-function addBookToLibrary(author, title, pages, read) {
-    const book = new Book(author, title, pages, read);
+function addBookToLibrary(author, title, pages, read, cover) {
+    const book = new Book(author, title, pages, read, cover);
 
     myLibrary.push(book);
 }
@@ -50,11 +51,21 @@ function renderLog() {
         const checkedAttr = book.read ? "checked" : "";
         const readClass = book.read ? "read" : "unread";
         const readText = book.read ? "Read" : "Unread";
+        const cover = book.cover
+            ? ` <img
+                    src="${book.cover}"
+                    alt="${book.title}"
+                    class="cover"
+                                >`
+            : "";
+
+        const hideIconClass = book.cover ? "hidden" : "";
 
         // Add html(info) of the book into it's innerHTML
         bookItem.innerHTML = `
                             <div class="book__cover">
-                                <label for="cover" class="edit-cover" type="button">
+                                ${cover}
+                                <label class="edit-cover ${hideIconClass}" type="button">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="36"
@@ -72,7 +83,7 @@ function renderLog() {
                                         <path d="M8 12h8" />
                                         <path d="M12 8v8" />
                                     </svg>
-                                    <input class="cover__input" type="file" id="cover" accept="image/*">
+                                    <input class="cover__input" type="file" accept="image/*">
                                 </label>
                             </div>
                             <div class="book__info">
@@ -172,7 +183,6 @@ logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
     const edit = e.target.closest(".edit__icon");
     const checkbox = e.target.closest(".switch__input");
-    const input = e.target.closest(".cover__input");
 
     if (!remove && !edit && !checkbox) return;
 
@@ -194,6 +204,33 @@ logMenu.addEventListener("click", (e) => {
         const badge = bookItem.querySelector(".book__read");
         editReadStatus(entryID, badge);
     }
+});
+
+// Listen for when file is selected
+logMenu.addEventListener("change", (e) => {
+    if (!e.target.classList.contains("cover__input")) return;
+
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const editIcon = e.target.closest(".edit-cover");
+    if (!editIcon) return;
+
+    const bookItem = e.target.closest(".book");
+    const entryID = bookItem.dataset.id;
+    const book = findBook(entryID);
+    if (!book) return;
+
+    const reader = new FileReader();
+    // Only after finished reading do we render the cover
+    reader.onload = (event) => {
+        book.cover = event.target.result; // Base64 data URL
+        editIcon.classList.add("hidden");
+        renderLog();
+    };
+
+    // Read n return as Base64 data URl
+    reader.readAsDataURL(file);
 });
 
 // Function to remove book entries
@@ -224,20 +261,6 @@ function openEditModal(entryID) {
     modal.dialog.showModal();
 }
 
-// Function to edit book entries
-function editBook(author, title, pages, read) {
-    console.log({ author }, { title });
-    const book = findBook(editingID);
-    if (!book) return;
-
-    book.author = author;
-    book.title = title;
-    book.pages = pages;
-    book.read = read;
-
-    renderLog();
-}
-
 // Toggle the book read status and it's badge
 function editReadStatus(id, badge) {
     const book = findBook(id);
@@ -253,6 +276,20 @@ function editReadStatus(id, badge) {
     } else {
         badge.textContent = "Read";
     }
+}
+
+// Function to edit book entries
+function editBook(author, title, pages, read) {
+    console.log({ author }, { title });
+    const book = findBook(editingID);
+    if (!book) return;
+
+    book.author = author;
+    book.title = title;
+    book.pages = pages;
+    book.read = read;
+
+    renderLog();
 }
 
 // Helper function to help capitalize the first character for author, title
