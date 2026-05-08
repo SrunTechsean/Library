@@ -174,9 +174,12 @@
 
 .book__cover {
     display: grid;
-    width: 6rem;
     height: 100%;
+    aspect-ratio: 1 / 1.5;
     background-color: var(--blue);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     border-radius: var(--radius-sm);
 }
 
