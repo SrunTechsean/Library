@@ -191,10 +191,22 @@
     left: 50%;
     opacity: 0.3;
     transform: translate(-50%, -50%);
-    transition: all 1s ease;
+    transition: all 0.5s ease;
+}
+
+/* Need to change the opacity of edit-cover since I put hidden on it */
+/* instead of the icon itself since i need to resize it to 0 so img cover div fully */
+.edit-cover {
+    transition: all 0.5s ease;
+}
+.edit-cover:focus,
+.edit-cover:hover {
+    opacity: 0.8;
 }
 
 .hidden {
+    width: 0;
+    height: 0;
     opacity: 0;
 }
 
@@ -206,7 +218,7 @@
 
 .edit-cover__icon:focus,
 .edit-cover__icon:hover {
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .book__info {
