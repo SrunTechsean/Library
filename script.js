@@ -23,7 +23,7 @@ function Book(author, title, pages, read, cover) {
     this.author = author;
     this.title = title;
     this.pages = pages;
-    this.read = read;
+    this.read = Boolean(read);
     this.cover = cover;
 }
 
@@ -34,10 +34,8 @@ function addBookToLibrary(author, title, pages, read, cover) {
 }
 
 // Test to see if the libary is storing the book
-for (let i = 0; i < 3; i++) {
-    addBookToLibrary("Sean", "FireBook", 200, true);
-}
-addBookToLibrary("Sean", "FireBook", 200, false);
+addBookToLibrary("James Clear", "Atomic Habits", 320, true, "img/AtomicHabbit.jpg");
+addBookToLibrary("Napoleon Hill", "Think and Grow Rich", 260, false);
 
 // Function that loop through myLibrary and display each book on the page
 function renderLog() {
