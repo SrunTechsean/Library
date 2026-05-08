@@ -188,9 +188,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    opacity: 30%;
+    opacity: 0.3;
     transform: translate(-50%, -50%);
     transition: all 1s ease;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .cover__input {
@@ -201,7 +205,7 @@
 
 .edit-cover__icon:focus,
 .edit-cover__icon:hover {
-    opacity: 100%;
+    opacity: 1;
 }
 
 .book__info {
