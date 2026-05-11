@@ -131,7 +131,31 @@ function renderLog() {
                                 <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
                                 <path d="M3 6h18"></path>
                                 <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                            </svg>`;
+                            </svg>
+                            <div class="others">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="icon__others"
+                                >
+                                    <title>More Option</title>
+                                    <circle cx="12" cy="12" r="1" />
+                                    <circle cx="12" cy="5" r="1" />
+                                    <circle cx="12" cy="19" r="1" />
+                                </svg>
+                                <div class="options">
+                                    <p class="edit__icon edit">Edit</p>
+                                    <p class="trash__icon remove">Remove</p>
+                                </div>
+                            </div>
+                            `;
         logMenu.appendChild(bookItem);
     }
 }
@@ -180,9 +204,10 @@ modal.form.addEventListener("submit", (e) => {
 logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
     const edit = e.target.closest(".edit__icon");
+    const others = e.target.closest(".others");
     const checkbox = e.target.closest(".switch__input");
 
-    if (!remove && !edit && !checkbox) return;
+    if (!remove && !edit && !checkbox && !others) return;
 
     const bookItem = e.target.closest(".book");
     const entryID = bookItem.dataset.id;
@@ -198,6 +223,9 @@ logMenu.addEventListener("click", (e) => {
 
         // Re-render the book log
         renderLog();
+    } else if (others) {
+        const options = others.querySelector(".options");
+        showOtherOptions(options);
     } else if (checkbox) {
         const badge = bookItem.querySelector(".book__read");
         editReadStatus(entryID, badge);
@@ -258,6 +286,26 @@ function openEditModal(entryID) {
 
     modal.dialog.showModal();
 }
+
+// Show Other options (which use to be icon)
+function showOtherOptions(options) {
+    // Close any other open dropdown first
+    document.querySelectorAll(".options--activate").forEach((el) => {
+        if (el !== options) el.classList.remove("options--activate");
+    });
+
+    options.classList.toggle("options--activate");
+}
+
+// Close other option when click anywhere else
+// I used to put this inside the showOtherOptions function but it create multiple eventListener
+// The first listener will find .option--activate and the second will return null since it got remove
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".others")) {
+        document.querySelector(".options--activate").classList.remove("options--activate");
+        console.log("click");
+    }
+});
 
 // Toggle the book read status and it's badge
 function editReadStatus(id, badge) {
