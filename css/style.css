@@ -34,8 +34,11 @@
     --icon-color: var(--red);
 }
 
-/* sidebar */
+.others {
+    display: none;
+}
 
+/* sidebar */
 .sidebar,
 .sidebar__nav {
     display: flex;
@@ -192,6 +195,11 @@
     opacity: 0.3;
     transform: translate(-50%, -50%);
     transition: all 0.5s ease;
+}
+
+/* don't show option in big screen since we already have icons */
+.options {
+    display: none;
 }
 
 /* Need to change the opacity of edit-cover since I put hidden on it */
@@ -507,6 +515,17 @@
         justify-self: center;
     }
 
+    .options--activate {
+        position: absolute;
+        top: 50%;
+        left: -150%;
+        display: block;
+        color: var(--text-primary);
+        background-color: var(--primary);
+        transform: translate(-50%, -50%);
+    }
+
+    /* Icon Section */
     .edit__icon {
         display: none;
     }
@@ -515,8 +534,22 @@
         display: none;
     }
 
+    .others {
+        position: relative;
+        display: grid;
+        grid-area: others;
+    }
+
     /* Button Section */
     .btn__add {
         width: max-content;
+    }
+
+    .edit,
+    .remove {
+        display: block;
+        padding: 1rem 3rem;
+        color: var(--background-white);
+        border-bottom: 1px solid var(--primary-light);
     }
 }
