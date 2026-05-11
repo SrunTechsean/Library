@@ -200,7 +200,7 @@ modal.form.addEventListener("submit", (e) => {
     renderLog();
 });
 
-// Remove, Edit, Toggle, addBookCover to book entries
+// Remove, Edit, Toggle read status and others icon
 logMenu.addEventListener("click", (e) => {
     const remove = e.target.closest(".trash__icon");
     const edit = e.target.closest(".edit__icon");
