@@ -297,13 +297,12 @@ function showOtherOptions(options) {
     options.classList.toggle("options--activate");
 }
 
-// Close other option when click anywhere else
-// I used to put this inside the showOtherOptions function but it create multiple eventListener
-// The first listener will find .option--activate and the second will return null since it got remove
+// Remove all activated options incase soemone edited it in inspect
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".others")) {
-        document.querySelector(".options--activate").classList.remove("options--activate");
-        console.log("click");
+        document.querySelectorAll(".options--activate").forEach((el) => {
+            el.classList.remove("options--activate");
+        });
     }
 });
 
