@@ -510,6 +510,13 @@
         font-size: clamp(1rem, 10cqi, 1.8rem);
     }
 
+    .book__info > * {
+        min-width: 168px; /* Required width constraint */
+        overflow: hidden; /* Clips the overflowing content */
+        text-overflow: ellipsis; /* Displays '...' for clipped text */
+        white-space: nowrap; /* Displays '...' for clipped text */
+    }
+
     .book__read {
         grid-area: badge;
     }
