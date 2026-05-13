@@ -166,6 +166,8 @@ renderLog();
 addButton.addEventListener("click", (e) => {
     e.preventDefault();
 
+    modal.form.reset();
+
     modal.dialog.showModal();
 });
 
@@ -186,7 +188,7 @@ modal.form.addEventListener("submit", (e) => {
     const pages = Number(modal.pages.value);
     const read = modal.read.checked;
 
-    // state.editingID means that a meal is currently being edited and is not a new meal log
+    // EditingID means that a book is currently being edited and is not a new book log
     if (editingID) {
         editBook(author, title, pages, read);
     } else {
@@ -194,6 +196,7 @@ modal.form.addEventListener("submit", (e) => {
     }
 
     editingID = null;
+    console.log({ editingID });
     modal.form.reset();
     modal.dialog.close();
 
@@ -325,7 +328,6 @@ function editReadStatus(id, badge) {
 
 // Function to edit book entries
 function editBook(author, title, pages, read) {
-    console.log({ author }, { title });
     const book = findBook(editingID);
     if (!book) return;
 
