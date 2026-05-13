@@ -188,6 +188,11 @@
     object-fit: cover;
 }
 
+.book__read {
+    width: 7rem;
+    text-align: center;
+}
+
 .edit-cover__icon {
     position: absolute;
     top: 50%;
@@ -240,7 +245,7 @@
 }
 
 .read {
-    padding: 4px 12px;
+    padding: 4px;
     color: var(--green);
     background-color: var(--green-light);
     border-radius: var(--radius-btn);
@@ -248,7 +253,7 @@
 }
 
 .unread {
-    padding: 4px 12px;
+    padding: 4px;
     color: var(--text-primary);
     background-color: var(--background-grey);
     border-radius: var(--radius-btn);
