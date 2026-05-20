@@ -175,6 +175,9 @@ addButton.addEventListener("click", (e) => {
 // Since the modal have 2 close btn
 modal.dialog.addEventListener("click", (e) => {
     if (e.target.closest(".close")) {
+        // Tell the program it's not editing anymore when form is close
+        editingID = null;
+
         modal.dialog.close();
     }
 });
