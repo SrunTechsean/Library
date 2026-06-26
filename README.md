@@ -59,4 +59,4 @@ A simple, web-based library application where users can curate their personal bo
 * **Switch Component**: Custom toggle switch styled with pure CSS.
 
 ## License
-[MIT](https://github.com/SrunTechsean/Library/blob/main/LICENSE) © SrunTechsean
+[MIT © SrunTechsean](LICENSE)
